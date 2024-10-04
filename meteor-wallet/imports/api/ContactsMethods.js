@@ -14,8 +14,13 @@ const removeContact = ({contactId}) => {
     return ContactsCollection.removeAsync(contactId);
 }
 
+const archiveContact = ({contactId}) => {
+    return ContactsCollection.updateAsync(contactId, { $set: { archived: true } });
+}
+
 Meteor.methods({
     insertContact,
-    removeContact
+    removeContact,
+    archiveContact
 });
 
