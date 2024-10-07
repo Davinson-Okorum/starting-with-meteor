@@ -1,6 +1,7 @@
 import React, { memo, useEffect } from "react";
 import { useSubscribe, useFind } from "meteor/react-meteor-data";
 import { ContactsCollection } from "../api/ContactsCollection";
+import { Loading } from "./components/Loading";
 function ContactList() {
   const isLoading = useSubscribe("contacts");
   const contacts = useFind(() =>
@@ -13,16 +14,6 @@ function ContactList() {
     event.preventDefault();
     Meteor.call("archiveContact", { contactId: _id });
   };
-
-  const Loading = () => (
-    <div>
-      <div className="mt-10">
-        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-          Loading...
-        </h3>
-      </div>
-    </div>
-  );
 
   const ContactItem = memo(({ contact }) => {
     return (

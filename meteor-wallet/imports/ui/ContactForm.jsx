@@ -6,6 +6,7 @@ function ContactForm() {
   const [DataContact, setDataContact] = useState({
     name: "",
     email: "",
+    walletId: "",
     imageURL: "",
   });
   const [Error, setError] = useState("");
@@ -31,6 +32,7 @@ function ContactForm() {
       name: "",
       email: "",
       imageURL: "",
+      walletId: "",
     });
     setSuccess("Contact saved successfully");
     setTimeout(() => {
@@ -94,6 +96,21 @@ function ContactForm() {
             type="text"
             id="imageURL"
             value={DataContact.imageURL}
+            onChange={handleChange}
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          />
+        </div>
+        <div className="col-span-6">
+          <label
+            htmlFor="walletId"
+            className="block text-sm font-medium text-gray-700  "
+          >
+            Wallet ID
+          </label>
+          <input
+            type="string"
+            id="walletId"
+            value={DataContact.walletId}
             onChange={handleChange}
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
